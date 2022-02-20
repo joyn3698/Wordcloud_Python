@@ -23,7 +23,7 @@ def calculate_frequencies(file_contents):
     file_contents.isalpha()
     individual_words=file_contents.lower().split()
     new_words={}
-    for word in sep:
+    for word in individual_words:
         if word not in uninteresting_words and word not in punctuations:
             
             if word not in new_words:
