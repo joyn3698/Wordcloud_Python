@@ -4,10 +4,10 @@
 
 
 import wordcloud
-
 import numpy as np
-
 from matplotlib import pyplot as plt
+
+#Insert the content
 file_contents=""
 
 def calculate_frequencies(file_contents):
@@ -18,16 +18,18 @@ def calculate_frequencies(file_contents):
     "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
     "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
     "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just"]
+    
+    #Make all the characters alphabets and ignore case
     file_contents.isalpha()
-    sep=file_contents.lower().split()
+    individual_words=file_contents.lower().split()
     new_words={}
-    for i in sep:
-        if i not in uninteresting_words and i not in punctuations:
+    for word in sep:
+        if word not in uninteresting_words and word not in punctuations:
             
-            if i not in new_words:
-                new_words[i]=1
+            if word not in new_words:
+                new_words[word]=1
             else:
-                new_words[i]+=1
+                new_words[word]+=1
             
     cloud = wordcloud.WordCloud()
     cloud.generate_from_frequencies(new_words)
